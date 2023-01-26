@@ -1,0 +1,22 @@
+account_id: ""
+project_slug: ""
+actions:
+  yuradmt/forsight:
+    runtime: v2
+    sources: actions
+    specs:
+      aave-depositor:
+        description: prints aave deposits
+        function: example:aaveDepositsFn
+        trigger:
+          type: transaction
+          transaction:
+            status:
+              - mined
+            filters:
+              - network: 1
+                eventEmitted:
+                  contract:
+                    address: 0x7d2768de32b0b80b7a3454c06bdac94a69ddc7a9
+                  name: Deposit
+          
